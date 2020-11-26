@@ -1,0 +1,78 @@
+p.item, h4.item {
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+p.item {
+    font-size: 0.7rem;
+    overflow: hidden;
+}
+
+h4.item {
+    font-size: 0.8rem;
+}
+
+div.item {
+    width: 88%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+a.item {
+    width: calc(100% - 2 * 1px);
+    height: calc(50px - 2 * 1px);
+    background-color: #f9bb2d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.list {
+    width: 100%;
+    height: 70%;
+    max-height: 70%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+.bg {
+    width: 500px;
+    height: 500px;
+    background-color: #DB81FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.buttonDiv {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.filterBox {
+    width: 100%;
+}
+
+.filter {
+    width: 15%;
+    height: 50px;
+    outline: none;
+}
