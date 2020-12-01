@@ -10,7 +10,8 @@
       "storage",
       "contextMenus",
       "tabs",
-      "bookmarks"
+      "bookmarks",
+      "management"
   ],
   "background": {
       "scripts": [

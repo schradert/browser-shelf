@@ -1,7 +1,7 @@
 /*global chrome*/
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.css';
-import ItemList from './components/ItemList.js';
+import ItemList from './components/ItemList';
 import { 
   colors,
   IconButton, 
@@ -263,7 +263,27 @@ const App = () => {
   const [state, setState] = useState<AppState>(initState);
   const classes = useStyles();
   const theme = useTheme();
-
+  useEffect(
+    () => {
+      const key = '[BrowserShelf] Chrome Bookmark IDs: Search';
+      chrome.storage.local.get(key,
+        items => chrome.bookmarks.get(items[key], results => {
+          setState(update(state, {
+            results: {$set: results.map((item, i) => ({
+              id: i.toString(),
+              title: item.title,
+              url: item.url as string,
+              author: 'unknown',
+              date: '01-31-2020',
+              length: '00:05:00',
+              icon: `https://${domainParser(item.url as string)}.com/favicon.ico`
+            }))}
+          }));
+        })
+      )
+      return () => console.log('Bookmarks loaded into React!');
+    }, []
+  );
   /* 
    * EVENT HANDLERS
    * @param `filter` for specifying state-modifying anonymous function

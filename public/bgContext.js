@@ -41,5 +41,11 @@ chrome.contextMenus.onClicked.addListener(data => {
 });
 
 chrome.bookmarks.search('language', results => {
-    
+    const min = Math.min(results.length, 15);
+    results = results.slice(0, min);
+    console.log('Bookmarks retrieved!')
+    chrome.storage.local.set(
+        { '[BrowserShelf] Chrome Bookmark IDs: Search': results.map(item => item.id) },
+        () => console.log('Bookmark IDs stored!')
+    );
 });

@@ -3,7 +3,7 @@ const files = dir => new Promise(
         entries => Promise.all(
             entries.filter(e => e.name[0] !== '.')
                     .map(e => e.isDirectory ? files(e) : new Promise(res => e.file(res)))
-        ).then(_files => [].concat(...files))
+        ).then(_files => [..._files])
         .then(res)
     )
 );
