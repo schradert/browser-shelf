@@ -1,6 +1,11 @@
 import React from 'react';
+import { ItemType } from 'interfaces';
 
-const Item = ({ item }) => {
+type ItemProps = {
+  item: ItemType
+};
+
+const Item = ({ item }: ItemProps) => {
   return (
     <a
       className="item" 

@@ -38,4 +38,8 @@ chrome.contextMenus.onClicked.addListener(data => {
     if (data.menuItemId === "saveWebPage") {
         return;
     }
-})
+});
+
+chrome.bookmarks.search('language', results => {
+    
+});
